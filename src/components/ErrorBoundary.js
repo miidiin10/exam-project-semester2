@@ -19,7 +19,7 @@ export default function ErrorFallback({ error }) {
         resetKeys={[username]}
         >
             <Bomb username={username} />
-        </ErrorBoundary>
+    </ErrorBoundary>
         </div>
     </div>
         
