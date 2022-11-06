@@ -1,6 +1,7 @@
 import * as React from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import { Helmet } from 'react-helmet'
+import { Helmet } from "react-helmet";
+
 
 function ErrorFallback({ error, resetErrorBoundary }) {
   return (
@@ -12,42 +13,43 @@ function ErrorFallback({ error, resetErrorBoundary }) {
   );
 }
 
-function Bomb({ username }) {
-  if (username === "bomb") {
+function Bomb({ count: counting }) {
+  if (counting === "1000") {
     throw new Error(" CABOOM CABOOM ");
   }
-  return `Hi ${username}`;
+//   return `Number ${counting}`;
 }
 
 export default function ErrorApp() {
-  const [username, setUsername] = React.useState("");
-  const usernameRef = React.useRef(null);
+  const [count, setCount] = React.useState("");
+  const countRef = React.useRef(null);
 
   return (
-    <div>
-      <label>
-        {`Username (don't type "bomb"): `}
-        <input
-          placeholder={'type "bomb"'}
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          ref={usernameRef}
-        />
-      </label>
+    <div className="errorBoundary">
       <div>
         <Helmet>
           <title>Error App</title>
           <meta name="description" content="Error App" />
         </Helmet>
+        <label>
+          {`Counting by Typing (don't enter "1000"): `}
+          <input
+            placeholder={'type "1000"'}
+            value={count}
+            onChange={(e) => setCount(e.target.value)}
+            ref={countRef}
+          />
+        </label>
+
         <ErrorBoundary
           FallbackComponent={ErrorFallback}
           onReset={() => {
-            setUsername("");
-            usernameRef.current.focus();
+            setCount("");
+            countRef.current.focus();
           }}
-          resetKeys={[username]}
+          resetKeys={[count]}
         >
-          <Bomb username={username} />
+          <Bomb count={count} />
         </ErrorBoundary>
       </div>
     </div>
