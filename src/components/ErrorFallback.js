@@ -18,7 +18,7 @@ import { ErrorBoundary } from 'react-error-boundary'
         return `Hi ${username}`;
     }
 
-    export default function App() {
+    export default function ErrorApp() {
         const [username, setUsername] = React.useState('');
         const usernameRef = React.useRef(null);
 
