@@ -42,7 +42,7 @@ a {
   border-radius: 10px;
 }
 
-.home, .counterHook, .reduceCounter, .errorBoundary {
+.home, .counterHook, .reduceCounter, .errorBoundary, .pageNotFound {
     width: 600px;
     height: 300px;
     background-color: #0aa32c;

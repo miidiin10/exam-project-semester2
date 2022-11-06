@@ -42,6 +42,7 @@ function App() {
           <li>
             <Link to="/ErrorFallback">Error Boundary</Link>
           </li>
+      
         </ul>
       </div>
 
@@ -50,7 +51,7 @@ function App() {
         <Route exact path="/CounterHooks" element={<CounterHooks />} />
         <Route exact path="/UseReducerHook" element={<UseReducerHook />} />
         <Route exact path="/ErrorFallback" element={<ErrorFallback />} />
-        <Route exact path="/*" element={<NotFound404 />} />
+        <Route exact path="/*" component={<NotFound404 />} />
       </Routes>
     </Router>
   );
