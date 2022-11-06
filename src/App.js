@@ -1,9 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
-import useCounter from './hooks/useCounter';
+// import useCounter from './hooks/useCounter';
 // import countReducer from './hooks/countReducer';
 import UseReducerHook from './components/UseReducerHook';
+import CounterHooks from './components/CounterHooks'
 
 
 export function useReducer(reducer, initialState) {
@@ -19,21 +20,10 @@ export function useReducer(reducer, initialState) {
 
 function App() {
 
-  
-
-  const {value, increment, decrement, reset} = useCounter(0)
-
-
 
   return (
     <>
-      <div className="counter">
-        <h1>{value}</h1>
-        <button onClick={increment}>Increment</button>
-        <button onClick={decrement}>Decrement</button>
-        <button onClick={reset}>RESET</button>
-        
-      </div>
+      <CounterHooks />
 
       <UseReducerHook />
     </>
